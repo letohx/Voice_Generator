@@ -8,30 +8,7 @@
 </head>
 <body>
     <h1>Озвучка текста</h1>
-    <textarea id="textToSpeak" rows="4" cols="50" placeholder="Введите текст для озвучки...">
-
-        @importknig
-        
-         
-        
-         
-        
-        Перевод этой книги подготовлен сообществом "Книжный импорт".
-        
-         
-        
-        Каждые несколько дней в нём выходят любительские переводы новых зарубежных книг в жанре non-fiction, которые скорее всего никогда не будут официально изданы в России.
-        
-         
-        
-        Все переводы распространяются бесплатно и в ознакомительных целях среди подписчиков сообщества.
-        
-         
-        
-        Подпишитесь на нас в Telegram: https://t.me/importknig
-        
-         
-        
+    <textarea id="textToSpeak" rows="40" cols="50" placeholder="Введите текст для озвучки...">
         Уолтер Айзексон «Илон Маск»
         
          
@@ -6712,14 +6689,34 @@
         
          
         
-         </textarea><br>
+    </textarea><br>
+
+    <!-- Добавление выпадающего списка для выбора голоса -->
+    <label for="voiceselection">Выберите голос:</label>
+    <select id="voiceselection" class="input input--dropdown js--animations">
+        <option value="Russian Female">Russian Female</option>
+        <option value="Russian Male">Russian Male</option>
+        <option value="UK English Female">UK English Female</option>
+        <option value="UK English Male">UK English Male</option>
+        <option value="US English Female">US English Female</option>
+        <option value="US English Male">US English Male</option>
+        <option value="Polish Male">Polish Male</option>
+        <option value="Polish Female">Polish Female</option>
+        <option value="Romanian Female">Romanian Female</option>
+        <option value="Slovak Female">Slovak Female</option>
+        <option value="Ukrainian Female">Ukrainian Female</option>
+        <!-- Добавьте сюда другие варианты, если нужно -->
+    </select><br><br>
+
     <button onclick="speakText()">Озвучить</button>
 
     <script>
         function speakText() {
             const text = document.getElementById('textToSpeak').value;
-            responsiveVoice.speak(text, "Russian Female");
+            const voice = document.getElementById('voiceselection').value;
+            responsiveVoice.speak(text, voice);
         }
     </script>
 </body>
 </html>
+
